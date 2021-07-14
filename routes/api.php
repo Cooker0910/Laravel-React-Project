@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/expenses', 'ExpenseController@all')->name('expenses.all');
+Route::post('/expenses', 'ExpenseController@store')->name('expenses.store');
+Route::get('/expenses/{expenses}', 'ExpenseController@show')->name('expenses.show');
+Route::put('/expenses/{expenses}', 'ExpenseController@update')->name('expenses.update');
+Route::delete('/expenses/{expenses}', 'ExpenseController@destroy')->name('expenses.destroy');
